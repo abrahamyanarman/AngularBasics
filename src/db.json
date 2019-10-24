@@ -5,6 +5,48 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "arman.abrahamyan.94@mail.ru",
+      "password": "123123",
+      "name": "status",
+      "id": 2
+    },
+    {
+      "email": "arman.abrahamyan.94@gmail.com",
+      "password": "123456",
+      "name": "Test",
+      "id": 3
+    },
+    {
+      "email": "abrahamyan.94@gmail.com",
+      "password": "123456",
+      "name": "user_role",
+      "id": 4
+    },
+    {
+      "email": "test1@mail.ru",
+      "password": "123456",
+      "name": "Test1",
+      "id": 5
+    },
+    {
+      "email": "test2@mail.ru",
+      "password": "123456",
+      "name": "Test2",
+      "id": 6
+    },
+    {
+      "email": "test3@mail.ru",
+      "password": "123456",
+      "name": "Test3",
+      "id": 7
+    },
+    {
+      "email": "test4@mail.ru",
+      "password": "123456",
+      "name": "Test4",
+      "id": 8
     }
   ],
   "bill": {
