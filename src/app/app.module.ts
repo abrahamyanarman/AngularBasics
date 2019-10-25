@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import {AuthModule} from "./auth/auth.module";
 import {UsersService} from "./shared/services/users.service";
 import {HttpClientModule} from "@angular/common/http";
-import {HttpModule} from "@angular/http";
 import {AuthService} from "./shared/services/auth.service";
+import {SystemModule} from "./system/system.module";
+import {SharedModule} from "./shared/shared.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -18,11 +20,16 @@ import {AuthService} from "./shared/services/auth.service";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    SystemModule,
+    SharedModule,
+    BrowserAnimationsModule
 
 
   ],
-  providers: [UsersService,AuthService],
+  providers: [UsersService, AuthService],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

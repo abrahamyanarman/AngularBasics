@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     this.message = new Message("denger","");
     this.rout.queryParams.subscribe((params:Params)=>{
       if (params['nowCanLogin']){
-        console.log(typeof params['nowCanLogin']);
         this.showMessage('Now we can Login!','success');
       }
     })
@@ -60,7 +59,7 @@ export class LoginComponent implements OnInit {
             this.message.text = '';
             window.localStorage.setItem('user',JSON.stringify(user))
             this.authService.login();
-            //this.router.navigate(['']);
+            this.router.navigate(['/system','bill']);
           }else {
             this.showMessage("username or password is wrong!")
           }

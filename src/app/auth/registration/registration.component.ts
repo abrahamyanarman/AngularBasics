@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../shared/services/users.service";
 import {User} from "../../shared/models/user.model";
 import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'hm-registration',
@@ -14,12 +15,15 @@ export class RegistrationComponent implements OnInit {
   form:FormGroup;
   constructor(
     private userServicce:UsersService,
-    private router:Router
-  ) { }
+    private router:Router,
+    private title:Title
+  ) {
+    title.setTitle("Register!")
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
-      'email': new FormControl(null,[Validators.required,Validators.email]),
+      'email': new FormControl(null,[Validators.required,Validators.email],this.forbiddenEmails.bind(this)),
       'password': new FormControl(null,[Validators.required,Validators.minLength(6)]),
       'name': new FormControl(null,[Validators.required]),
       'agree': new FormControl(false,[Validators.requiredTrue])
@@ -38,5 +42,21 @@ export class RegistrationComponent implements OnInit {
               }
             })
       });
+  }
+
+  forbiddenEmails(control: FormControl): Promise<any> {
+
+
+    return new Promise((resolve, reject) => {
+      this.userServicce.getUserByEmail(control.value)
+        .subscribe((user: User) => {
+          if (user) {
+            resolve({forbiddenEmail:true})
+          } else {
+
+            resolve(null);
+          }
+        });
+    });
   }
 }
